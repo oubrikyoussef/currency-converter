@@ -1,12 +1,12 @@
 run();
 
-function run() {
+async function run() {
     const selectElements =  Array.from(document.querySelectorAll('select'));
     const exchangeRate = document.querySelector('.form__exchange-rate');
     const input = document.querySelector('input');
 
     let fetchedData = JSON.parse(window.localStorage.getItem("fetchedData"));
-    checkLocalSorage();
+    await checkLocalSorage();
     const currencies = fetchedData.rates;
 
     initialize();
@@ -22,7 +22,7 @@ function run() {
         const elapsedTime =  currentTime.getTime(); //Ms Elapsed Since Epoche Time (In Local Time Zone)
         const timezoneOffset = currentTime.getTimezoneOffset()*60*1000;
         currentTime = elapsedTime - timezoneOffset;
-        const lastestUpdate = (new Date(fetchedData.date)).getTime();
+        const lastestUpdate = new Date(fetchedData.date).getTime();
         const dayInMs = 86400000;
 
         if(currentTime - lastestUpdate >= dayInMs){
