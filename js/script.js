@@ -17,6 +17,7 @@ function run() {
     
 
     async function checkLocalSorage(){
+    if(fetchedData){
         let currentTime = new Date();
         const elapsedTime =  currentTime.getTime(); //Ms Elapsed Since Epoche Time (In Local Time Zone)
         const timezoneOffset = currentTime.getTimezoneOffset()*60*1000;
@@ -24,9 +25,14 @@ function run() {
         const lastestUpdate = (new Date(fetchedData.date)).getTime();
         const dayInMs = 86400000;
 
-        if(currentTime - lastestUpdate >= dayInMs || !fetchedData){
+        if(currentTime - lastestUpdate >= dayInMs){
             fetchedData = await fetchData("0c0dd52befec42fa8223a44d63ebb1ba", "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=");
         }
+    }
+    else {
+        fetchedData = await fetchData("0c0dd52befec42fa8223a44d63ebb1ba", "https://api.currencyfreaks.com/v2.0/rates/latest?apikey=");
+    }
+
     }
     async function initialize(){
     for(let i = 0 ; i < selectElements.length ; i++){
