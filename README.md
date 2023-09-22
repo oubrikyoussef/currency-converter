@@ -31,7 +31,7 @@ Throughout the development of this project, I faced several intriguing challenge
 
 ### Demo
 
-Check out the live demo: [Currency Converter](https://oubrikyoussef.github.io/currency-converter/)
+Check out the live demo: [Currency Converter](https://yo-currency-converter.netlify.app/)
 
 ## My Process
 
