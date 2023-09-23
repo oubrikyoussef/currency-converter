@@ -68,8 +68,9 @@ label {
   gap: 5px;
   padding: 8px;
 }
-.select-box__select {
+.drop-list__select-box select {
   font-size: 1rem;
+  background-color: transparent;
 }
 .form__icon i {
   cursor: pointer;
